@@ -1,5 +1,5 @@
 body {
-    background-color: #f4f4f4; /* Cor de fundo clara e suave */
+    background-color: #b5a6a6; /* Cor de fundo clara e suave */
     color: #333; /* Texto escuro para melhor legibilidade */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -8,21 +8,19 @@ body {
     align-items: center;
     min-height: 100vh;
     position: relative;
-    overflow: auto; /* Permite rolagem - modificado*/
-
-    
+    overflow: auto; /* Permite rolagem */
 }
 
 .container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que os itens se movam para baixo em telas menores */
     justify-content: center;
-    align-items: flex-start;
     gap: 20px;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px; /* Ajuste a largura máxima */
     position: relative;
     z-index: 1;
+    box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
 }
 
 .calculator {
@@ -32,6 +30,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 400px;
+    box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
 }
 
 #display {
@@ -44,17 +43,19 @@ body {
     text-align: right;
     font-size: 1.8em;
     margin-bottom: 15px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
+    overflow: hidden; /* Evita que o texto saia da caixa */
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    width: 100%; /* Ajusta a largura para o tamanho da calculadora */
 }
 
 button {
-    padding: 20px;
+    padding: 15px; /* Ajustado para uma melhor adaptação */
     background-color: #9c9c9c; /* Cor suave para os botões */
     color: #ffffff; /* Texto branco */
     border: 2px solid #dddddd; /* Borda suave */
@@ -62,6 +63,7 @@ button {
     font-size: 1.2em;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
 }
 
 button:hover {
@@ -81,42 +83,37 @@ button:active {
     width: 100%;
     max-width: 500px;
     line-height: 1.6;
-    margin-top: 20px; /* Espaço superior para separar da calculadora */
-}
-
-h2 {
-    color: #444444; /* Cor suave para os títulos */
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
-
-/* Imagem de fundo desfocada */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('numeros.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1;
+    box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
 }
 
 /* Estilo Responsivo */
-@media (max-width: 768px) {
-    .calculator {
-        max-width: 100%;
+@media (min-width: 769px) {
+    .container {
+        flex-direction: row; /* Coloca os itens em linha para telas maiores */
     }
 
     .info {
-        max-width: 100%;
-        margin-top: 20px;
+        margin-left: 20px; /* Espaço entre a calculadora e a caixa de informações */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Coloca os itens em coluna para telas menores */
+    }
+
+    .info {
+        margin-top: 20px; /* Espaço acima da caixa de informações */
     }
 
     .buttons {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    button {
+        padding: 10px; /* Ajusta o padding para telas menores */
+        font-size: 1em; /* Ajusta o tamanho da fonte */
+    }
 }
+
 
