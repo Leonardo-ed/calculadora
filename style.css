@@ -1,12 +1,14 @@
 body {
-    background-color: #1e1e1e; /* Escuro para um visual moderno */
-    color: #ffffff; /* Texto branco para contraste */
+    background-color: #f4f4f4; /* Cor de fundo clara e suave */
+    color: #333; /* Texto escuro para melhor legibilidade */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
@@ -17,13 +19,15 @@ body {
     gap: 20px;
     width: 90%;
     max-width: 1200px;
+    position: relative;
+    z-index: 1;
 }
 
 .calculator {
-    background-color: #2e2e2e;
+    background-color: #ffffff; /* Fundo claro para a calculadora */
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 400px;
 }
@@ -31,9 +35,9 @@ body {
 #display {
     width: 100%;
     padding: 15px;
-    background-color: #000000;
-    color: #b61212;
-    border: 2px solid #dfe4df;
+    background-color: #333333; /* Escuro para contraste com o texto claro */
+    color: #ffffff; /* Texto branco para visibilidade */
+    border: 2px solid #cccccc; /* Borda mais clara */
     border-radius: 10px;
     text-align: right;
     font-size: 1.8em;
@@ -49,9 +53,9 @@ body {
 
 button {
     padding: 20px;
-    background-color: #853680;
-    color: #d9abcc;
-    border: 2px solid #dfe9df;
+    background-color: #9c9c9c; /* Cor suave para os botões */
+    color: #ffffff; /* Texto branco */
+    border: 2px solid #dddddd; /* Borda suave */
     border-radius: 8px;
     font-size: 1.2em;
     cursor: pointer;
@@ -59,7 +63,7 @@ button {
 }
 
 button:hover {
-    background-color: #444444;
+    background-color: #b3b3b3; /* Cor mais clara ao passar o mouse */
 }
 
 button:active {
@@ -67,16 +71,35 @@ button:active {
 }
 
 .info {
-    color: #6a6e6a;
+    background-color: #ffffff; /* Fundo branco para a caixa de informações */
+    color: #333333; /* Texto escuro para contraste */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 500px;
     line-height: 1.6;
+    margin-top: 20px; /* Espaço superior para separar da calculadora */
 }
 
 h2 {
-    color: #e3ede3;
+    color: #444444; /* Cor suave para os títulos */
     font-size: 1.8em;
     margin-bottom: 15px;
+}
+
+/* Imagem de fundo desfocada */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('numeros.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 /* Estilo Responsivo */
@@ -94,3 +117,5 @@ h2 {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+
